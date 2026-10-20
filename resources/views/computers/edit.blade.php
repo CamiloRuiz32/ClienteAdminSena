@@ -1,0 +1,30 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <h1>Editar Computador</h1>
+
+    <form action="{{route('computer.update', $computer['id'])}}" method="POST" enctype="multipart/form-data">
+
+        @csrf
+        @method('PUT')
+
+        <label>
+            Número:
+            <br>
+            <input type="text" name="number" value="{{old('number', $computer['number'] ?? '') }}">
+        </label>
+        <br><br>
+        <label>
+            Marca:
+            <br>
+            <input type="text" name="brand" value="{{old('brand', $computer['brand'] ?? '') }}">
+        </label>
+        <br>
+
+        <br><br>
+        <button type="submit" class="btn btn-outline-success btn-sm">Enviar Formulario:</button>
+        <br><br>
+    </form>
+
+@endsection
